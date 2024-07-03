@@ -1,0 +1,22 @@
+Node*p=NULL,*t=head,*q=NULL;
+       while(t!=NULL&&t->next!=NULL){
+           if(t->next->data!=t->data){
+               p=t;
+               t=t->next;
+           }
+           else{
+               q=t->next;
+               while(q!=NULL&&q->data==t->data){
+                   q=q->next;
+               }
+               if(p==NULL){
+                   head=q;
+                   t=q;
+               }
+               else{
+                   p->next=q;
+                   t=q;
+               }
+           }
+       }
+       return head;
